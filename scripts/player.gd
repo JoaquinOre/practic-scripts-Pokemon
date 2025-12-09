@@ -3,8 +3,10 @@ var vel_actual = Vector2()
 var vel_desp = 16
 
 func _ready():
+	var puntos_spawn = get_tree().get_nodes_in_group("spawn")
 	$AnimationPlayer.play("walk_up")
-	
+	global_position = puntos_spawn[0].global_position
+
 func _physics_process(delta):
 	if(!$AnimationPlayer.is_playing()):
 		if (Input.is_action_just_pressed("acept")):
@@ -12,8 +14,8 @@ func _physics_process(delta):
 				var objeto_chocado = $palo/RayCast2D.get_collider()
 				if (objeto_chocado.is_in_group("pc")):
 					print("interactuando con el pc")
-				if (objeto_chocado.is_in_group("ordenador")):
-					print("interactuando con el ordenador")
+				if (objeto_chocado.is_in_group("tele")):
+					print("interactuando con el tele")
 
 
 		if(Input.is_action_pressed("tecla_W")):

@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf6it7yehh1x2"]
+[gd_scene load_steps=11 format=3 uid="uid://cf6it7yehh1x2"]
 
 [ext_resource type="Texture2D" uid="uid://dr78q72u6r1jm" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Backgrounds (Places) - Pallet Town.png" id="1_aykxs"]
+[ext_resource type="PackedScene" uid="uid://b18b7128f83a2" path="res://scenas/player.tscn" id="2_wto2s"]
+[ext_resource type="Script" uid="uid://c680m84n3lpri" path="res://scenas/escaleras.gd" id="3_f24cy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wto2s"]
 size = Vector2(16, 144)
@@ -9,16 +11,19 @@ size = Vector2(16, 144)
 size = Vector2(16, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8wrv"]
-size = Vector2(96.34863, 13.701118)
+size = Vector2(128.71397, 13.701118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7rg8"]
-size = Vector2(32.1817, 35.351734)
+size = Vector2(29.951294, 28.739182)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72pgo"]
 size = Vector2(31.473248, 35.481216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xivm0"]
 size = Vector2(15.062546, 16.842278)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0ys"]
+size = Vector2(15.612904, 17.843328)
 
 [node name="Node2D" type="Node2D"]
 
@@ -41,7 +46,7 @@ position = Vector2(153.27898, 71.591354)
 shape = SubResource("RectangleShape2D_f24cy")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="paredes"]
-position = Vector2(80.81085, 152.40504)
+position = Vector2(80.42472, 151.44914)
 shape = SubResource("RectangleShape2D_e8wrv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="paredes"]
@@ -49,24 +54,36 @@ position = Vector2(96.318634, 7.3848534)
 shape = SubResource("RectangleShape2D_e8wrv")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="paredes"]
-position = Vector2(80.740234, 89.96495)
+position = Vector2(80.41829, 86.65867)
 shape = SubResource("RectangleShape2D_f7rg8")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="paredes"]
 position = Vector2(32.04371, 18.382206)
 shape = SubResource("RectangleShape2D_72pgo")
 
-[node name="pc" type="StaticBody2D" parent="."]
+[node name="pc" type="StaticBody2D" parent="." groups=["pc"]]
 position = Vector2(72.96644, 28.039497)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pc" groups=["pc"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pc" groups=["tele"]]
 position = Vector2(-0.45454407, 0.009922028)
 shape = SubResource("RectangleShape2D_xivm0")
 debug_color = Color(0.87970555, 0.3145195, 0.3426995, 0.41960785)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(112, 27.412174)
+[node name="Marker2D" type="Marker2D" parent="." groups=["spawn"]]
+position = Vector2(118.37262, 27.8578)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(82.402435, 74.45622)
 zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_wto2s")]
+position = Vector2(-44.289673, 33.774864)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(136.6926, 26.764984)
+script = ExtResource("3_f24cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.2826538, 0.34093666)
+shape = SubResource("RectangleShape2D_fr0ys")
+debug_color = Color(0.5260942, 0.5194915, 0.14313656, 0.41960785)
