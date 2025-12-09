@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://dncbf3n2o6w8w"]
+
+[ext_resource type="Texture2D" uid="uid://dr78q72u6r1jm" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Backgrounds (Places) - Pallet Town.png" id="1_srh0x"]
+[ext_resource type="Script" uid="uid://bmww843qq1h0s" path="res://scenas/area_2d.gd" id="2_pnfwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srh0x"]
+size = Vector2(16.000002, 143.39401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnfwj"]
+size = Vector2(128.07747, 13.571106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_16m6x"]
+size = Vector2(79.84029, 12.334809)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpcor"]
+size = Vector2(16.000002, 143.39401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xskkg"]
+size = Vector2(31.051712, 22.466316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn3m5"]
+size = Vector2(12.426604, 31.197021)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbor3"]
+size = Vector2(16, 30.6923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naudh"]
+size = Vector2(16.948574, 17.925117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amftp"]
+size = Vector2(15.173965, 17.903255)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0.38555908, 0.38552856)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64.125, 72)
+scale = Vector2(1.0059056, 1.1428572)
+texture = ExtResource("1_srh0x")
+region_enabled = true
+region_rect = Rect2(483, 11, 127, 126)
+
+[node name="Spawn_j" type="Marker2D" parent="." groups=["spawn"]]
+position = Vector2(48, 128)
+
+[node name="paredes" type="StaticBody2D" parent="." groups=["paredes"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes"]
+position = Vector2(136.19315, 73.36659)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_srh0x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="paredes"]
+position = Vector2(64.22819, 150.92728)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_pnfwj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="paredes"]
+position = Vector2(87.34405, 7.4665437)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_16m6x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="paredes"]
+position = Vector2(-7.9999995, 72.30299)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_tpcor")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="paredes"]
+position = Vector2(31.525856, 19.233158)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_xskkg")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="paredes"]
+position = Vector2(104.16345, 128.52634)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_tn3m5")
+
+[node name="PC" type="StaticBody2D" parent="." groups=["pc"]]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="PC" groups=["pc"]]
+position = Vector2(7.9999995, 15.34615)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_dbor3")
+
+[node name="ordenador" type="StaticBody2D" parent="." groups=["ordenador"]]
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="ordenador"]
+position = Vector2(55.718613, 82.58822)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_naudh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(66.451294, 79.312805)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(95.61444, 31.614471)
+script = ExtResource("2_pnfwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(23.916634, -4.455248)
+shape = SubResource("RectangleShape2D_amftp")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
