@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dncbf3n2o6w8w"]
+[gd_scene load_steps=12 format=3 uid="uid://dncbf3n2o6w8w"]
 
 [ext_resource type="Texture2D" uid="uid://dr78q72u6r1jm" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Backgrounds (Places) - Pallet Town.png" id="1_srh0x"]
 [ext_resource type="Script" uid="uid://bmww843qq1h0s" path="res://scenas/area_2d.gd" id="2_pnfwj"]
-[ext_resource type="PackedScene" uid="uid://b18b7128f83a2" path="res://scenas/player.tscn" id="3_16m6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srh0x"]
 size = Vector2(16.000002, 143.39401)
@@ -31,7 +30,7 @@ size = Vector2(16.948574, 17.925117)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amftp"]
 size = Vector2(15.173965, 17.903255)
 
-[node name="Node2D" type="Node2D" groups=["nivel"]]
+[node name="Node2D" type="Node2D"]
 position = Vector2(0.38555908, 0.38552856)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -103,8 +102,5 @@ script = ExtResource("2_pnfwj")
 position = Vector2(23.916634, -4.455248)
 shape = SubResource("RectangleShape2D_amftp")
 debug_color = Color(0.80884314, 0.40864992, 0.17338514, 0.41960785)
-
-[node name="Player" parent="." groups=["nivel"] instance=ExtResource("3_16m6x")]
-position = Vector2(-66.44104, 123.416275)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
