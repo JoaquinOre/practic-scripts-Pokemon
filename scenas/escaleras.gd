@@ -12,5 +12,6 @@ func _on_body_entered(body: Node2D) -> void:
 		print("no se a encontrado body de grupo players")
 
 func cambiar_nivel():
+	
 	get_tree().change_scene_to_file(escena_destino)
 	

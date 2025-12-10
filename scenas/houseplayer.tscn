@@ -25,7 +25,7 @@ size = Vector2(15.062546, 16.842278)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0ys"]
 size = Vector2(15.612904, 17.843328)
 
-[node name="Node2D" type="Node2D" groups=["nivel"]]
+[node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 0)
@@ -76,10 +76,7 @@ position = Vector2(118.37262, 27.8578)
 position = Vector2(82.402435, 74.45622)
 zoom = Vector2(4, 4)
 
-[node name="Player" parent="." instance=ExtResource("2_wto2s")]
-position = Vector2(-44.289673, 33.774864)
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["nivel"]]
 position = Vector2(136.6926, 26.764984)
 script = ExtResource("3_f24cy")
 
@@ -87,5 +84,8 @@ script = ExtResource("3_f24cy")
 position = Vector2(0.2826538, 0.34093666)
 shape = SubResource("RectangleShape2D_fr0ys")
 debug_color = Color(0.5260942, 0.5194915, 0.14313656, 0.41960785)
+
+[node name="Player" parent="." groups=["spawn"] instance=ExtResource("2_wto2s")]
+position = Vector2(-66.84968, 97.000755)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

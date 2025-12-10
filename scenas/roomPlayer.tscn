@@ -30,7 +30,7 @@ size = Vector2(16.948574, 17.925117)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amftp"]
 size = Vector2(15.173965, 17.903255)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["nivel"]]
 position = Vector2(0.38555908, 0.38552856)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
