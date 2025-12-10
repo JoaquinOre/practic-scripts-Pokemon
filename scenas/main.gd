@@ -3,7 +3,7 @@ extends Node2D
 @export var roomPlayer : PackedScene
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:  
 	var newLvl = roomPlayer.instantiate()
 	add_child(newLvl)
 	var newPlayer = player.instantiate()

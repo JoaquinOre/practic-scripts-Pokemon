@@ -25,7 +25,7 @@ size = Vector2(15.062546, 16.842278)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0ys"]
 size = Vector2(15.612904, 17.843328)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["nivel"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 0)
@@ -87,3 +87,5 @@ script = ExtResource("3_f24cy")
 position = Vector2(0.2826538, 0.34093666)
 shape = SubResource("RectangleShape2D_fr0ys")
 debug_color = Color(0.5260942, 0.5194915, 0.14313656, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
