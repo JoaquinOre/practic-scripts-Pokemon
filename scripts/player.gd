@@ -1,7 +1,6 @@
 extends CharacterBody2D
 var vel_actual = Vector2()
 var vel_desp = 16
-
 func _ready():
 	var puntos_spawn = get_tree().get_nodes_in_group("spawn")
 	$AnimationPlayer.play("walk_up")
@@ -48,7 +47,3 @@ func _physics_process(delta):
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	vel_actual = Vector2(0,0)# Replace with function body.
 	global_position = Vector2((round(global_position.x) - get_tree().get_nodes_in_group("spawn")[0].global_position.x /vel_desp * vel_desp) + get_tree().get_nodes_in_group("spawn")[0].global_position.x, (round(global_position.y) - get_tree().get_nodes_in_group("spawn")[0].global_position.y/ vel_desp * vel_desp) + get_tree().get_nodes_in_group("spawn")[0].global_position.y)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
