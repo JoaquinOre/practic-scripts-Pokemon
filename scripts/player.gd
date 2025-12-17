@@ -2,6 +2,7 @@ extends CharacterBody2D
 var vel_actual = Vector2()
 var vel_desp = 16
 
+
 func _ready():
 	var puntos_spawn = get_tree().get_nodes_in_group("spawn")
 	$AnimationPlayer.play("walk_up")

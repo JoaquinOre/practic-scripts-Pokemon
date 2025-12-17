@@ -85,7 +85,7 @@ position = Vector2(0.2826538, 0.34093666)
 shape = SubResource("RectangleShape2D_fr0ys")
 debug_color = Color(0.5260942, 0.5194915, 0.14313656, 0.41960785)
 
-[node name="Player" parent="." groups=["spawn"] instance=ExtResource("2_wto2s")]
-position = Vector2(-66.84968, 97.000755)
+[node name="Player" parent="." instance=ExtResource("2_wto2s")]
+position = Vector2(-118.7473, 53.204964)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

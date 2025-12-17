@@ -1,7 +1,43 @@
-[gd_scene load_steps=11 format=3 uid="uid://b18b7128f83a2"]
+[gd_scene load_steps=14 format=3 uid="uid://b18b7128f83a2"]
 
 [ext_resource type="Script" uid="uid://dofq6r32fgp7a" path="res://scripts/player.gd" id="1_xnvex"]
 [ext_resource type="Texture2D" uid="uid://hasosa2uapvp" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Characters - Characters (Overworld).png" id="2_esmah"]
+
+[sub_resource type="Animation" id="Animation_esmah"]
+resource_name = "sexooo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6ar2e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft8kh"]
+_data = {
+&"RESET": SubResource("Animation_6ar2e"),
+&"sexooo": SubResource("Animation_esmah")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnvex"]
 size = Vector2(14.3844385, 15.931768)
@@ -112,6 +148,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-7.6293945e-06, -1.2284584)
+safe_margin = 0.001
 script = ExtResource("1_xnvex")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -119,8 +157,12 @@ texture = ExtResource("2_esmah")
 hframes = 10
 frame = 4
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ft8kh")
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.11365366, -0.0013513565)
 shape = SubResource("RectangleShape2D_xnvex")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -75,7 +75,7 @@ position = Vector2(104.16345, 128.52634)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_tn3m5")
 
-[node name="PC" type="StaticBody2D" parent="."]
+[node name="PC" type="StaticBody2D" parent="." groups=["pc"]]
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="PC" groups=["pc"]]
 position = Vector2(7.9999995, 15.34615)
