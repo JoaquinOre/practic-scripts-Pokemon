@@ -55,7 +55,7 @@ script = ExtResource("1_duqqm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_pqmdv")
 animation = &"walk_right"
-frame_progress = 0.19542773
+frame_progress = 0.16717306
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_6sqgi")
