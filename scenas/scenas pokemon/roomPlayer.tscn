@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dncbf3n2o6w8w"]
 
 [ext_resource type="Texture2D" uid="uid://dr78q72u6r1jm" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Backgrounds (Places) - Pallet Town.png" id="1_srh0x"]
-[ext_resource type="Script" uid="uid://bmww843qq1h0s" path="res://scenas/area_2d.gd" id="2_pnfwj"]
+[ext_resource type="Script" uid="uid://bmww843qq1h0s" path="res://scripts/area_2d.gd" id="2_pnfwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srh0x"]
 size = Vector2(16.000002, 143.39401)

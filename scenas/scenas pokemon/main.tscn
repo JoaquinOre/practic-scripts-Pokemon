@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwhf2h23bmcn"]
+
+[ext_resource type="PackedScene" uid="uid://b18b7128f83a2" path="res://scenas/scenas pokemon/player.tscn" id="1_k1x8v"]
+[ext_resource type="Script" uid="uid://d1ow4q3r1ubk0" path="res://scripts/main.gd" id="1_oa55e"]
+[ext_resource type="PackedScene" uid="uid://dncbf3n2o6w8w" path="res://scenas/scenas pokemon/roomPlayer.tscn" id="2_28tx3"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_oa55e")
+player = ExtResource("1_k1x8v")
+roomPlayer = ExtResource("2_28tx3")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3af2s6axid8v"]
+
+[ext_resource type="Script" uid="uid://c62xikemit58c" path="res://scenas/mario/character_body_2d.gd" id="1_duqqm"]
+[ext_resource type="Texture2D" uid="uid://b46rfu82rjoee" path="res://sprites/bazzalargethongs.png" id="1_v784s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duqqm"]
+atlas = ExtResource("1_v784s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqmdv"]
+atlas = ExtResource("1_v784s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sqgi"]
+atlas = ExtResource("1_v784s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u85l0"]
+atlas = ExtResource("1_v784s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqmdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duqqm")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqmdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sqgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u85l0")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6sqgi"]
+height = 32.0
+
+[node name="mario" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_duqqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_pqmdv")
+animation = &"walk_right"
+frame_progress = 0.19542773
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_6sqgi")
