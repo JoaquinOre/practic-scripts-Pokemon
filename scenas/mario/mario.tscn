@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3af2s6axid8v"]
 
-[ext_resource type="Script" uid="uid://c62xikemit58c" path="res://scenas/mario/character_body_2d.gd" id="1_duqqm"]
+[ext_resource type="Script" uid="uid://c62xikemit58c" path="res://scripts/character_body_2d.gd" id="1_duqqm"]
 [ext_resource type="Texture2D" uid="uid://b46rfu82rjoee" path="res://sprites/bazzalargethongs.png" id="1_v784s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_duqqm"]
@@ -51,6 +51,9 @@ height = 32.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_duqqm")
+jump_height = 100.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_pqmdv")
@@ -59,3 +62,11 @@ frame_progress = 0.16717306
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_6sqgi")
+
+[node name="ledge_hit" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -13)
+target_position = Vector2(18, 0)
+
+[node name="ledge_miss" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -19)
+target_position = Vector2(20, 0)
