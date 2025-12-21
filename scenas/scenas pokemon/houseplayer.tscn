@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf6it7yehh1x2"]
+[gd_scene load_steps=13 format=3 uid="uid://cf6it7yehh1x2"]
 
 [ext_resource type="Texture2D" uid="uid://dr78q72u6r1jm" path="res://sprites/Game Boy _ GBC - Pokemon Red _ Blue - Backgrounds (Places) - Pallet Town.png" id="1_aykxs"]
 [ext_resource type="PackedScene" uid="uid://b18b7128f83a2" path="res://scenas/scenas pokemon/player.tscn" id="2_wto2s"]
 [ext_resource type="Script" uid="uid://c680m84n3lpri" path="res://scripts/escaleras.gd" id="3_f24cy"]
+[ext_resource type="Script" uid="uid://xiviv4fwpeoe" path="res://scenas/scenas pokemon/salida.gd" id="4_rtbf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wto2s"]
 size = Vector2(16, 144)
@@ -11,7 +12,7 @@ size = Vector2(16, 144)
 size = Vector2(16, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8wrv"]
-size = Vector2(128.71397, 13.701118)
+size = Vector2(64.35699, 13.701118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7rg8"]
 size = Vector2(29.951294, 28.739182)
@@ -24,6 +25,9 @@ size = Vector2(15.062546, 16.842278)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fr0ys"]
 size = Vector2(15.612904, 17.843328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s4ln"]
+size = Vector2(32, 16)
 
 [node name="Node2D" type="Node2D"]
 
@@ -46,7 +50,11 @@ position = Vector2(153.27898, 71.591354)
 shape = SubResource("RectangleShape2D_f24cy")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="paredes"]
-position = Vector2(80.42472, 151.44914)
+position = Vector2(112.8215, 151)
+shape = SubResource("RectangleShape2D_e8wrv")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="paredes"]
+position = Vector2(16, 151)
 shape = SubResource("RectangleShape2D_e8wrv")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="paredes"]
@@ -88,4 +96,12 @@ debug_color = Color(0.5260942, 0.5194915, 0.14313656, 0.41960785)
 [node name="Player" parent="." instance=ExtResource("2_wto2s")]
 position = Vector2(-118.7473, 53.204964)
 
+[node name="salida" type="Area2D" parent="." groups=["salida"]]
+script = ExtResource("4_rtbf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="salida"]
+position = Vector2(64, 152)
+shape = SubResource("RectangleShape2D_4s4ln")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="salida" to="salida" method="_on_body_entered"]

@@ -51,22 +51,26 @@ height = 32.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_duqqm")
-jump_height = 100.0
-jump_time_to_peak = 0.5
+jump_time_to_peak = 0.3
 jump_time_to_descent = 0.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_pqmdv")
 animation = &"walk_right"
-frame_progress = 0.16717306
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_6sqgi")
 
 [node name="ledge_hit" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(0, -13)
+unique_name_in_owner = true
+position = Vector2(0, -16)
 target_position = Vector2(18, 0)
 
 [node name="ledge_miss" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(0, -19)
-target_position = Vector2(20, 0)
+position = Vector2(0, -24)
+target_position = Vector2(29, 0)
+
+[node name="coyoteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true
