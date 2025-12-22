@@ -72,5 +72,5 @@ target_position = Vector2(29, 0)
 
 [node name="coyoteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.15
+wait_time = 0.2
 one_shot = true

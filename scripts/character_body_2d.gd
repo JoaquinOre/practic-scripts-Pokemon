@@ -21,7 +21,10 @@ func _physics_process(delta: float) -> void:
 	var was_on_floor = is_on_floor()
 	velocity.y += get_custom_gravity() * delta
 	if !on_ledge:
-		_ledge_logic()
+		#_ledge_logic()
+		#este if es para verificar si es el personaje se puede agarrar a algo
+		#si ledge miss está colisionando entonces no se puede agarrar porque es un muro muy grande para el personaje, por eso debe cumplirse  
+		#ver el diseño de mario
 		if %ledge_hit.is_colliding() && !$ledge_miss.is_colliding() && velocity.y > 0:
 			velocity.y = 0
 			grab_ledge = true
@@ -49,12 +52,11 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 
 
-func _ledge_logic() -> void:
-	if is_on_floor() or velocity.y <= 0 or direction == 0:
-		return
-	if (%ledge_hit.is_colliding() or $ledge_miss.is_colliding()):
-		return
-
+#func _ledge_logic() -> void:
+	#if is_on_floor() or velocity.y <= 0 or direction == 0:
+		#return
+	#if (%ledge_hit.is_colliding() or $ledge_miss.is_colliding()):
+		#return
 
 
 
